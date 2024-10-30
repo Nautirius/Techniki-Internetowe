@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cwiczenie5</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        header {
+            margin: 20px;
+            padding: 5px;
+            border: 2px solid red;
+        }
+        table {
+            border-collapse: collapse;
+            border: 1px solid blue;
+            width: 30vw;
+        }
+        td {
+            padding: 8px;
+        }
+        th {
+            background-color: cyan;
+        }
+        tbody tr:nth-child(even) {
+            background-color: lightgreen;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: lightgray;
+        }
+        .inner-table-header {
+            background-color: violet;
+            font-weight: bold;
+        }
+        tfoot {
+            background-color: sandybrown;
+        }
+        tfoot td {
+            font-weight: bold;
+        }
+        img {
+            height: auto;
+            width: 30vw;
+        }
+        .flex-wrapper {
+            display: flex; width: 80vw; justify-content: space-between; flex-direction: row; margin: 20px auto;
+        }
+        .text-left { text-align: left; }
+    </style>
+</head>
+<body>
+
+<article>
+<header>
+    <h1>Laboratorium 1, Zadanie 5, HTML i CSS</h1>
+</header>
+
+<div class="flex-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Lp.</th>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Grupa</th>
+                <th>Ocena</th>
+            </tr>
+            <tr class="inner-table-header"><td colspan="5">Oceny koncowe studentow</td></tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>Adam</td><td>Abacki</td><td>A</td><td>4</td></tr>
+            <tr><td>2</td><td>Ewa</td><td>Babacka</td><td>B</td><td>5</td></tr>
+            <tr><td>3</td><td>Edward</td><td>Cabacki</td><td>A</td><td>3</td></tr>
+            <tr><td>4</td><td>Tomasz</td><td>Dadacki</td><td>A</td><td>4</td></tr>
+            <tr><td>5</td><td>Anna</td><td>Kowalska</td><td>B</td><td>3</td></tr>
+            <tr><td>6</td><td>Marek</td><td>Zawadzki</td><td>A</td><td>5</td></tr>
+        </tbody>
+        <tfoot>
+            <tr class="inner-table-header"><td colspan="5">Oceny srednie w grupach</td></tr>
+            <tr><td colspan="3" class="text-left">1</td><td>A</td><td>4</td></tr>
+            <tr><td colspan="3" class="text-left">2</td><td>B</td><td>4</td></tr>
+        </tfoot>
+    </table>
+
+    <img src="https://www.musicexpress.pl/media/catalog/product/cache/d3c858d300162e6f0827a648ff2db07b/m/k/mk-2106-keyboard-klawisze-dla-dzieci-usb-mp3-29.jpg" alt="Przyklad klawiatury">
+</div>
+</article>
+
+</body>
+</html>
+
+
