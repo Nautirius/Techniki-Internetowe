@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab05 - formularz</title>
+    <style>
+        form { width: 30vw; border: 1px solid black; background: lightgray; margin-bottom: 10px; }
+        input, select { margin-top: 5px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <form method="POST" action="../cgi-bin/lab05/save.py">
+        <label for="first-name">Imie: (*pole wymagane)</label>
+        <br>
+        <input id="first-name" name="first-name" type="text" required>
+        <br>
+        <label for="last-name">Nazwisko: (*pole wymagane)</label>
+        <br>
+        <input id="last-name" name="last-name" type="text" required>
+        <br>
+        <label for="email">Adres e-mail: (*pole wymagane)</label>
+        <br>
+        <input id="email" name="email" type="email" required>
+        <br>
+        <label for="year">Rok studiow: (*pole wymagane)</label>
+        <br>
+        <select id="year" name="year" required>
+            <option value="" disabled selected>Wybierz rok</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <br>
+        <input type="submit" value="Wyslij">
+    </form>
+    <form method="GET" action="../cgi-bin/lab05/read.py">
+        <input type="submit" value="Wyswietl dane">
+    </form>
+    </body>
+</html>
