@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Pory roku</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        canvas {
+            border: 1px solid black;
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz: Ktora pore roku lubisz?</h1>
+    <form id="quizForm">
+        <label><input type="radio" name="season" value="0"> Zima</label><br>
+        <label><input type="radio" name="season" value="1"> Wiosna</label><br>
+        <label><input type="radio" name="season" value="2" checked> Lato</label><br>
+        <label><input type="radio" name="season" value="3"> Jesień</label><br>
+        <button type="submit">Wyslij</button>
+    </form>
+    <canvas id="histogram" width="500" height="300"></canvas>
+
+    <script>
+        const form = document.getElementById('quizForm');
+        const canvas = document.getElementById('histogram');
+        const ctx = canvas.getContext('2d');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const selectedOption = form.season.value;
+
+            const response = await fetch('../cgi-bin/lab07/script.py', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ answer: selectedOption }),
+            });
+
+            const results = await response.json();
+            drawHistogram(results);
+        });
+
+        function drawHistogram(data) {
+            const labels = ['Zima', 'Wiosna', 'Lato', 'Jesien'];
+            const colors = ['blue', 'green', 'yellow', 'red'];
+            const barWidth = canvas.width / data.length;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            data.forEach((count, index) => {
+                const barHeight = (count / Math.max(...data)) * canvas.height;
+                ctx.fillStyle = colors[index];
+                ctx.fillRect(index * barWidth, canvas.height - barHeight, barWidth - 10, barHeight);
+                ctx.fillStyle = 'black';
+                ctx.fillText(labels[index], index * barWidth + 10, canvas.height - 5);
+            });
+        }
+    </script>
+</body>
+</html>
+

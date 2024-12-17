@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab06 - zadanie 1</title>
+
+</head>
+
+<body>
+
+    <script>
+        document.addEventListener("keyup", e => {
+            console.log(e);
+            switch (e.key) {
+                case "S":
+                case "s":
+                    alert("Wcisnieto klawisz S")
+                    break;
+                case "C":
+                case "c":
+                    let value = prompt("Podaj liczbe studentow");
+                    if (value > 0) { alert(`Podano liczbe studentow: ${value}`); }
+                    break;
+                case "K":
+                case "k":
+                    let exit = confirm("Czy na pewno chcesz zakonczyc prace?");
+                    if (exit) { alert("Dziekujemy za wspolprace!"); }
+                    break;
+                default:
+                    break;
+            }
+        });
+    </script>
+</body>
+
+</html>
